@@ -8,10 +8,13 @@ class OverallRatingsPage
   ELEMENTS = { 'row' => [:xpath, "//tbody/tr[__row__]/td[__column__]"],
                'ratings_table' => [:xpath, "//table[contains(@class, 'cars table table-hover')]"]}
 
+  # Methods to get the ratings of the vehicles from the first page
+  # Once the values are received, they are stored in a hash to consume in the tests for validations
   def get_ratings
     wait_for_element('ratings_table')
     rankings = {}
 
+    # Iterate over the table of ratings to gather relative data and create KV pairs
     for ranking in 1..5
       vehicle_details = {}
       vehicle_details['Make'] = find_element('row', [ranking.to_s,'2']).text
@@ -25,6 +28,7 @@ class OverallRatingsPage
     rankings
   end
 
+  # Custom methods to handle dynamic waits
   def wait_for_element(element)
     wait = Selenium::WebDriver::Wait.new(timeout: 60)
     wait.until { find_element(element) }

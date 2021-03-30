@@ -31,6 +31,7 @@ class HomePage
     wait_for_element('login_button').click
   end
 
+  # Method to login to the app
   def login_to_app(username=nil, password=nil)
     enter_username(username)
     enter_password(password)
@@ -45,6 +46,7 @@ class HomePage
     wait_for_element('salutation').text
   end
 
+  # Method to open any category from the home page based on category name
   def open_category(category_title=nil)
     @wait.until { find_elements('category_list').length > 1 }
     categories = find_elements('category_list')
@@ -58,6 +60,7 @@ class HomePage
     end
   end
 
+  # Custom methods to handle dynamic waits
   def wait_for_element(element)
     @wait.until { find_element(element) }
   end

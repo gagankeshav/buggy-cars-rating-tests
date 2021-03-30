@@ -31,6 +31,7 @@ class VehicleDetailsPage
     wait_for_element("branding_header").click
   end
 
+  # Methods to handle dynamic waits
   def wait_for_element(element)
     wait = Selenium::WebDriver::Wait.new(timeout: 60)
     wait.until { find_element(element) }

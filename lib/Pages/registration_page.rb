@@ -43,6 +43,7 @@ class RegistrationPage
     wait_for_element('cancel_button').click
   end
 
+  # Method to register a new user
   def register_new_user(user_details=nil)
     enter_username(user_details.fetch('username'))
     enter_firstname(user_details.fetch('firstname'))
@@ -60,6 +61,7 @@ class RegistrationPage
     wait_for_element("branding_header").click
   end
 
+  # Method to handle dynamic waits
   def wait_for_element(element)
     wait = Selenium::WebDriver::Wait.new(timeout: 60)
     wait.until { find_element(element) }
