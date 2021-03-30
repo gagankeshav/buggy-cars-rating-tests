@@ -1,0 +1,4 @@
+# Configuration used in the automation tests
+buggy_cars_rating_webaddress: https://buggy.justtestit.org/
+regn_successful_message: Registration is successful
+voted_message: Thank you for your vote!
